@@ -1,7 +1,7 @@
 import instagrapi
 import os
 import apod
-import schedule 
+from schedule import repeat, every, day, at , run_pending
 import time
 cl = instagrapi.Client()
 cl.login('the_void.sea',os.environ.get('insta_pass'))
@@ -20,5 +20,5 @@ def update():
     print(media.dict())
 
 while True:
-    schedule.run_pending()
-    time.sleep()
+    run_pending()
+    time.sleep(1)
