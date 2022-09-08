@@ -21,4 +21,4 @@ def update():
 
 while True:
     schedule.run_pending()
-    time.sleep()
+    time.sleep(1)
