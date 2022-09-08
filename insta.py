@@ -6,6 +6,7 @@ import time
 cl = instagrapi.Client()
 cl.login('the_void.sea',os.environ.get('insta_pass'))
 dlr = apod.APOD()
+@repeat(schedule.every().day().at("11:30"))
 def update():
     imgInfo = dlr.img('./')
 
@@ -18,7 +19,6 @@ def update():
 
     print(media.dict())
 
-schedule.every().day().at("11:30").do(update)
 while True:
     schedule.run_pending()
     time.sleep()
