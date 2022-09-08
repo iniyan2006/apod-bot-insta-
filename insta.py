@@ -1,12 +1,12 @@
 import instagrapi
 import os
 import apod
-from schedule import repeat, every, day, at , run_pending
+import schedule 
 import time
 cl = instagrapi.Client()
 cl.login('the_void.sea',os.environ.get('insta_pass'))
 dlr = apod.APOD()
-@repeat(schedule.every().day().at("11:30"))
+@schedule.repeat(schedule.every().day().at("11:30"))
 def update():
     imgInfo = dlr.img('./')
 
@@ -20,5 +20,5 @@ def update():
     print(media.dict())
 
 while True:
-    run_pending()
-    time.sleep(1)
+    schedule.run_pending()
+    time.sleep()
