@@ -6,7 +6,7 @@ import time
 cl = instagrapi.Client()
 cl.login('the_void.sea',os.environ.get('insta_pass'))
 dlr = apod.APOD()
-@schedule.repeat(schedule.every().day().at("11:30"))
+@schedule.repeat(schedule.every().day.at("11:30"))
 def update():
     imgInfo = dlr.img('./')
 
