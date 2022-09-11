@@ -13,11 +13,13 @@ def update():
     img = imgInfo[0]
     title = imgInfo[1]['title']
     exp = imgInfo[1]['explanation']
-    copyright = imgInfo[1]['copyright']
-
-    media = cl.photo_upload(path=img,caption=f"{title}\n\n\n\n{exp}\n credits: {copyright}")
-
-    print(media.dict())
+    try:
+        copyright = imgInfo[1]['copyright']
+        media = cl.photo_upload(path=img,caption=f"{title}\n\n\n\n{exp}\n credits: {copyright}")
+        print(media.dict())
+    except KeyError:
+        media = cl.photo_upload(path=img,caption=f"{title}\n\n\n\n{exp}\n credits: unknown")
+        print(media.dict())
 
 while True:
     schedule.run_pending()
