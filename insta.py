@@ -8,6 +8,7 @@ cl.login('the_void.sea',os.environ.get('insta_pass'))
 dlr = apod.APOD()
 @schedule.repeat(schedule.every().day.at("05:00"))
 def update():
+    cl.login('the_void.sea',os.environ.get('insta_pass'))
     imgInfo = dlr.img('./')
 
     img = imgInfo[0]
