@@ -3,6 +3,7 @@ import os
 import apod
 import schedule 
 import time
+print(time.ctime())
 cl = instagrapi.Client()
 dlr = apod.APOD()
 @schedule.repeat(schedule.every().day.at("05:00"))
